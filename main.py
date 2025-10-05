@@ -1,28 +1,6 @@
 import pygame
 from constants import *
-
-#Class for the in game objects
-class CircleShape(pygame.sprite.Sprite):
-    def __init__(self, x, y, radius):
-        if hasattr(self, "containers"):
-            super().__init__(self.containers)
-        else:
-            super().__init__()
-
-        self.position = pygame.Vector2(x, y)
-        self.velocity = pygame.Vector2(0, 0)
-        self.radius = radius
-
-    def draw(self, screen):
-        #leave blank to allow children to overwrite
-        pass
-
-    def update(self, dt):
-        #as above, children will overwrite
-        pass
-
-
-
+from player import *
 
 def main():
 
@@ -33,6 +11,9 @@ def main():
     clock = pygame.time.Clock()
     dt = 0
 
+    #Player objects
+    player1 = Player((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2))
+
     #game loop 
     while True:
         #allows program to be closed
@@ -40,8 +21,15 @@ def main():
             if event.type == pygame.QUIT:
                 return
     
-        screen.fill("BLACK")
-        pygame.display.flip
+        
+        #sets background
+        screen.fill("black")
+
+        #draws player
+        player1.draw(screen)
+        
+        #flips screen
+        pygame.display.flip()
 
         #limits fps to 60
         dt = (clock.tick(60) / 1000)
