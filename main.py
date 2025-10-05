@@ -48,6 +48,11 @@ def main():
                 sys.exit()
             elif player1.collision(obj) == False:
                 pass
+        for obj in asteroids:
+            for shot in shots:
+                if shot.collision(obj):
+                    shot.kill()
+                    obj.kill()
 
         #sets background
         screen.fill("black")
