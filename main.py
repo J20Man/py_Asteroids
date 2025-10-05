@@ -21,13 +21,15 @@ def main():
             if event.type == pygame.QUIT:
                 return
     
-        
+        #player movement
+        player1.update(dt)
+
         #sets background
         screen.fill("black")
-
+        
         #draws player
         player1.draw(screen)
-        
+
         #flips screen
         pygame.display.flip()
 
