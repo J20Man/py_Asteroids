@@ -4,18 +4,24 @@ from constants import *
 def main():
 
     pygame.init()
+    #boilerplate objects
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    #clock
+    clock = pygame.time.Clock()
+    dt = 0
 
-    #game loop -
-    loop_val = 1
-    while loop_val == 1:
-        screen.fill("BLACK")
-        pygame.display.flip
-
+    #game loop 
+    while True:
+        #allows program to be closed
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+    
+        screen.fill("BLACK")
+        pygame.display.flip
 
+        #limits fps to 60
+        dt = (clock.tick(60) / 1000)
 
 
 
