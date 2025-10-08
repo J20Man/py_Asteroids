@@ -4,12 +4,27 @@ from constants import *
 from player import *
 from asteroid import *
 from asteroidfield import *
+from menu import show_difficulty_menu
+
 
 def main():
 
     pygame.init()
     #boilerplate objects
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    pygame.display.set_caption("Asteroids")
+
+    difficulty = show_difficulty_menu(screen)
+    print(f"Selected difficulty: {difficulty}")
+
+    if difficulty == "easy":
+        AsteroidField.asteroid_count = 5
+    elif difficulty == "medium":
+        AsteroidField.asteroid_count = 10
+    elif difficulty == "hard":
+        AsteroidField.asteroid_count = 15
+
+        
     #clock
     clock = pygame.time.Clock()
     
