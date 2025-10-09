@@ -19,10 +19,13 @@ def main():
 
     if difficulty == "easy":
         AsteroidField.asteroid_count = 5
+        Asteroid.velcoity = 1
     elif difficulty == "medium":
         AsteroidField.asteroid_count = 10
+        Asteroid.velcoity = 3
     elif difficulty == "hard":
         AsteroidField.asteroid_count = 15
+        Asteroid.velcoity = 5
 
         
     #clock

@@ -1,10 +1,10 @@
 # menu.py
 import pygame
 import sys
+from constants import *
 
 pygame.init()
 
-WIDTH, HEIGHT = 800, 600
 WHITE = (255, 255, 255)
 GRAY = (100, 100, 100)
 LIGHT_GRAY = (170, 170, 170)
@@ -32,12 +32,12 @@ def show_difficulty_menu(screen):
     # Buttons
     button_width = 200
     button_height = 60
-    button_y_start = HEIGHT // 2 - 100
+    button_y_start = SCREEN_HEIGHT // 2 - 100
     button_spacing = 80
 
-    easy_button = Button("Easy", WIDTH//2 - button_width//2, button_y_start, button_width, button_height)
-    medium_button = Button("Medium", WIDTH//2 - button_width//2, button_y_start + button_spacing, button_width, button_height)
-    hard_button = Button("Hard", WIDTH//2 - button_width//2, button_y_start + button_spacing*2, button_width, button_height)
+    easy_button = Button("Easy", SCREEN_WIDTH//2 - button_width//2, button_y_start, button_width, button_height)
+    medium_button = Button("Medium", SCREEN_WIDTH//2 - button_width//2, button_y_start + button_spacing, button_width, button_height)
+    hard_button = Button("Hard", SCREEN_WIDTH//2 - button_width//2, button_y_start + button_spacing*2, button_width, button_height)
 
     selected_difficulty = None
     while selected_difficulty is None:
@@ -54,9 +54,9 @@ def show_difficulty_menu(screen):
                 selected_difficulty = "hard"
 
         # Draw
-        screen.fill(WHITE)
-        title = font.render("Select Difficulty", True, BLACK)
-        title_rect = title.get_rect(center=(WIDTH//2, HEIGHT//2 - 180))
+        screen.fill(BLACK)
+        title = font.render("Select Difficulty", True, WHITE)
+        title_rect = title.get_rect(center=(SCREEN_WIDTH//2, SCREEN_HEIGHT//2 - 180))
         screen.blit(title, title_rect)
 
         easy_button.draw(screen)
